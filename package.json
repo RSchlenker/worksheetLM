@@ -1,5 +1,5 @@
 {
-  "name": "Worksheet LM",
+  "name": "worksheet-lm",
   "private": true,
   "scripts": {
     "dev": "next dev",
