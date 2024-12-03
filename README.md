@@ -12,3 +12,11 @@ Danach nur noch die Dependencies installieren und den Server starten.
 yarn install
 yarn dev
 ```
+
+## Mock Setup
+
+Um ohne Azure subscription entwickeln zu können kann einfach das mock setup genutzt werden:
+
+```bash
+yarn dev:mock
+```

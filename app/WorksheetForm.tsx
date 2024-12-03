@@ -6,7 +6,7 @@ import LoadingButton from './components/LoadingButton'
 import { addWorksheet } from '../store/worksheetSlice'
 import { Worksheet } from './actions/tools/WorksheetTool'
 
-export default function AITextForm() {
+export default function WorksheetForm() {
   const [text, setText] = useState('')
   const [title, setTitle] = useState('')
   const [textReference, setTextReference] = useState('')
