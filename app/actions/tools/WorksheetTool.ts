@@ -24,6 +24,7 @@ export interface Worksheet {
   }
   nameOfText: string
   referenceInBook: string
+  id: string
 }
 
 export const worksheetTool = new DynamicStructuredTool({

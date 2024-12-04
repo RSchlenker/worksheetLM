@@ -8,7 +8,6 @@ export default function TrueFalseStatements({
   statements: Worksheet['trueFalseStatements'][0][]
   index: number
 }) {
-  console.log('Statements:', statements)
   return (
     <View>
       <Text style={{ marginBottom: '10px' }}>

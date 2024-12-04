@@ -12,7 +12,7 @@ export default function LoadingButton({
   return (
     <button
       type="button"
-      className="inline-flex min-w-40 min-h-8 justify-center rounded-md bg-emerald-500 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-emerald-600 sm:w-auto ml-auto mt-3 focus:outline-none focus:shadow-outline focus:bg-emerald-600"
+      className="inline-flex min-w-40 min-h-8 justify-center rounded-md bg-cyan-700 hover:bg-cyan-400 px-3 py-2 text-sm font-semibold text-white shadow-sm sm:w-auto ml-auto mt-3 focus:outline-none focus:shadow-outline focus:bg-emerald-600"
       onClick={() => onClick()}
     >
       {isLoading ? (

@@ -4,21 +4,19 @@ import generateWorksheet from './GenerateWorksheet'
 import { Worksheet } from '../../actions/tools/WorksheetTool'
 import { RootState, useAppSelector } from '../../../store/store'
 
-export default function WorksheetViewer() {
-  const worksheets: Worksheet[] = useAppSelector(
-    (state: RootState) => state.worksheet.worksheets,
-  )
-  if (worksheets && worksheets.length > 0) {
-    const RenderedWorksheet = generateWorksheet(
-      worksheets[worksheets.length - 1],
-    )
+export default function WorksheetViewer({
+  worksheet,
+}: {
+  worksheet: Worksheet
+}) {
+  if (worksheet && worksheet.firstQuestion) {
+    const RenderedWorksheet = generateWorksheet(worksheet)
     return (
-      <PDFViewer style={{ width: '100%', height: 500 }}>
+      <PDFViewer style={{ width: '100%', height: '85%' }}>
         <RenderedWorksheet />
       </PDFViewer>
     )
   } else {
-    return <div>Keine Arbeitsblätter vorhanden</div>
+    return <div>Worksheet nicht generiert</div>
   }
-  // console.log('Worksheets in viewer:', worksheets)
 }

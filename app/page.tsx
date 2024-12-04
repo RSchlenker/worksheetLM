@@ -2,7 +2,7 @@
 import ReduxProvider from '../store/ReduxProvider'
 import '../styles/global.css'
 import WorksheetForm from './WorksheetForm'
-import WorksheetViewer from './components/WorksheetGenerator/WorksheetViewer'
+import WorksheetWrapper from './components/WorksheetWrapper'
 
 export default function Page() {
   return (
@@ -13,9 +13,13 @@ export default function Page() {
           <div className="col-span-5 lg:col-span-2">
             <WorksheetForm />
           </div>
-          <div className="col-span-5 lg:col-span-3 h-[100vh]">
-            <WorksheetViewer />
+          <div className="col-span-5 lg:col-span-3">
+            <WorksheetWrapper />
           </div>
+          <div className="col-span-3">{/*<WorksheetValidator />*/}</div>
+          {/*<div className="col-span-5">*/}
+          {/*  <WorksheetViewer />*/}
+          {/*</div>*/}
         </div>
       </main>
     </ReduxProvider>
