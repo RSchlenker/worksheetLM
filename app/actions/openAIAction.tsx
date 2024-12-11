@@ -1,18 +1,18 @@
 'use server'
 
-import { AzureChatOpenAI } from '@langchain/openai'
 import { promptWithExample } from './OpenAITools'
 import { HumanMessage } from '@langchain/core/messages'
 import { Worksheet, worksheetTool } from './tools/WorksheetTool'
+import { ChatFireworks } from '@langchain/community/chat_models/fireworks'
 
 export async function askChatGPT(
   question: string,
   nameOfText: string,
   referenceOfText: string,
 ): Promise<Worksheet> {
-  const model = new AzureChatOpenAI()
-  const llmWithTools = model.bindTools([worksheetTool])
-  const response = await llmWithTools.invoke(
+  const model = new ChatFireworks()
+  const modelWithTools = model.bindTools([worksheetTool])
+  const response = await modelWithTools.invoke(
     [...promptWithExample, new HumanMessage(question)],
     {
       tool_choice: 'required',
