@@ -8,6 +8,7 @@ export default function MultipleChoiceQuestion({
   question: Worksheet['multipleChoiceQuestions'][0]
   index: number
 }) {
+  if (!question) return null
   return (
     <View style={{ paddingTop: 5, gap: 5 }}>
       <Text>

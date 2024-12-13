@@ -35,7 +35,7 @@ export const worksheetTool = new DynamicStructuredTool({
       question: z
         .string()
         .describe(
-          'Eine einfache Frage die mit Beschreibe es in einem Satz endet.',
+          'Eine einfache Frage, die direkt aus dem Text hervorgeht und keine zusätzlichen Informationen erfordert.',
         ),
       answer: z.string().describe('Die Antwort auf die Frage'),
     }),
@@ -44,7 +44,9 @@ export const worksheetTool = new DynamicStructuredTool({
         z.object({
           question: z
             .string()
-            .describe('Eine Multiple Choice Frage mit 3 Antwortmöglichkeiten'),
+            .describe(
+              'Eine einfache Frage, die direkt aus dem Text hervorgeht und keine zusätzlichen Informationen erfordert.',
+            ),
           answer1: z.string().describe('Die erste Antwortmöglichkeit'),
           answer2: z.string().describe('Die zweite Antwortmöglichkeit'),
           answer3: z.string().describe('Die dritte Antwortmöglichkeit'),
@@ -59,8 +61,7 @@ export const worksheetTool = new DynamicStructuredTool({
           isTrue: z.boolean().describe('Ist die Aussage wahr?'),
         }),
       )
-      .min(3)
-      .max(3),
+      .length(3),
     writeMultiple: z
       .object({
         question: z.string().describe('Die Frage'),

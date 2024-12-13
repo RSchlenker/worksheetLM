@@ -3,14 +3,15 @@
 import { promptWithExample } from './OpenAITools'
 import { HumanMessage } from '@langchain/core/messages'
 import { Worksheet, worksheetTool } from './tools/WorksheetTool'
-import { ChatFireworks } from '@langchain/community/chat_models/fireworks'
+import { AzureChatOpenAI, ChatOpenAI } from '@langchain/openai'
 
 export async function askChatGPT(
   question: string,
   nameOfText: string,
   referenceOfText: string,
 ): Promise<Worksheet> {
-  const model = new ChatFireworks()
+  let model: ChatOpenAI
+  model = new AzureChatOpenAI()
   const modelWithTools = model.bindTools([worksheetTool])
   const response = await modelWithTools.invoke(
     [...promptWithExample, new HumanMessage(question)],
