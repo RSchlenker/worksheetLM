@@ -5,22 +5,27 @@ import { useAppDispatch } from '../store/store'
 import LoadingButton from './components/LoadingButton'
 import { addWorksheet } from '../store/worksheetSlice'
 import { Worksheet } from './actions/tools/WorksheetTool'
+import LevelSelector from './components/LevelSelector'
 
 export default function WorksheetForm() {
   const [text, setText] = useState('')
   const [title, setTitle] = useState('')
   const [textReference, setTextReference] = useState('')
+  const [level, setLevel] = useState<number>(3)
   const [loading, setLoading] = useState<boolean>(false)
   const dispatch = useAppDispatch()
   const onConfirm = async () => {
     setLoading(true)
-    console.log('asking chatGPT')
-    const response: Worksheet = await askChatGPT(text, title, textReference)
+    const response: Worksheet = await askChatGPT(
+      text,
+      title,
+      textReference,
+      level,
+    )
     // @ts-ignore
     dispatch(addWorksheet(response))
     setLoading(false)
   }
-  // const Worksheet = await generatePdf()
   return (
     <div className="p-8 flex flex-col gap-5">
       <Field>
@@ -55,6 +60,7 @@ export default function WorksheetForm() {
         />
       </Field>
       <div className="w-full flex">
+        <LevelSelector initialLevel={level} onChange={setLevel} />
         <LoadingButton
           text="Arbeitsblatt erstellen"
           isLoading={loading}

@@ -12,7 +12,7 @@ export default function LoadingButton({
   return (
     <button
       type="button"
-      className="inline-flex min-w-40 min-h-8 justify-center rounded-md bg-cyan-700 hover:bg-cyan-400 px-3 py-2 text-sm font-semibold text-white shadow-sm sm:w-auto ml-auto mt-3 focus:outline-none focus:shadow-outline focus:bg-emerald-600"
+      className="inline-flex min-w-40 h-14 max-h-16 justify-center rounded-md bg-cyan-700 hover:bg-cyan-400 px-3 py-2 text-sm font-semibold text-white shadow-sm sm:w-auto ml-auto focus:outline-none focus:shadow-outline focus:bg-emerald-600 my-auto"
       onClick={() => onClick()}
     >
       {isLoading ? (
@@ -25,7 +25,7 @@ export default function LoadingButton({
           />
         </div>
       ) : (
-        text
+        <p className="my-auto">{text}</p>
       )}
     </button>
   )

@@ -4,8 +4,8 @@ import SimpleQuestionForm from './QuestionAnswerValidator'
 import MultipleChoiceQuestionForm from './MultipleChoiceQuestionForm'
 import TrueFalseStatementsForm from './TrueFalseStatementsForm'
 import WriteMultipleForm from './WriteMultipleForm'
-import { AiOutlineEdit, AiOutlineEye } from 'react-icons/ai'
 import { Button } from '@headlessui/react'
+import WorksheetMetadataForm from './WorksheetMetadataForm'
 
 export default function SimpleWorksheetValidator({
   onSubmit,
@@ -21,6 +21,8 @@ export default function SimpleWorksheetValidator({
   const [trueFalseStatements, setTrueFalseStatements] = useState(
     worksheet.trueFalseStatements,
   )
+  const [level, setLevel] = useState(worksheet.level)
+  const [textReference, setTextReference] = useState(worksheet.referenceInBook)
   const [updatedWorksheet, setUpdatedWorksheet] = useState(worksheet)
 
   const updateFirstQuestion = (question: string, answer: string) => {
@@ -62,6 +64,20 @@ export default function SimpleWorksheetValidator({
     }
     setUpdatedWorksheet(newWorksheet)
   }
+  const updateMetadata = (
+    name: string,
+    textReference: string,
+    level: number,
+  ) => {
+    console.log('updateMetadata', name, textReference, level)
+    const newWorksheet = {
+      ...worksheet,
+      nameOfText: name,
+      referenceInBook: textReference,
+      level: level,
+    }
+    setUpdatedWorksheet(newWorksheet)
+  }
 
   return (
     <div>
@@ -97,6 +113,12 @@ export default function SimpleWorksheetValidator({
           onSubmit={(newQuestion) => {
             updateMultipleChoiceQuestion(newQuestion, 1)
           }}
+        />
+        <WorksheetMetadataForm
+          onChange={updateMetadata}
+          level={worksheet.level}
+          name={worksheet.nameOfText}
+          textReference={worksheet.referenceInBook}
         />
       </div>
       <div className="flex">

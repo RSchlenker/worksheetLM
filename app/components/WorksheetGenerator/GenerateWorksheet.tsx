@@ -9,8 +9,11 @@ export default function generateWorksheet(worksheet: Worksheet) {
     family: 'Grundschrift',
     src: 'grundschrift/Grundschrift-Regular.ttf',
   })
-  const MyDocument = () => (
-    <Document style={{ fontSize: 14, fontFamily: 'Grundschrift' }}>
+  return () => (
+    <Document
+      style={{ fontSize: 14, fontFamily: 'Grundschrift' }}
+      title={'DOKU 1'}
+    >
       <Page size="A4">
         <View>
           <Image
@@ -45,6 +48,7 @@ export default function generateWorksheet(worksheet: Worksheet) {
               <TextQuestion
                 question={worksheet.firstQuestion.question}
                 index={1}
+                level={worksheet.level}
               />
               <MultipleChoiceQuestion
                 question={worksheet.multipleChoiceQuestions[0]}
@@ -57,6 +61,7 @@ export default function generateWorksheet(worksheet: Worksheet) {
               <TextQuestion
                 question={worksheet.writeMultiple.question}
                 index={4}
+                level={worksheet.level}
               />
               <MultipleChoiceQuestion
                 question={worksheet.multipleChoiceQuestions[1]}
@@ -68,5 +73,4 @@ export default function generateWorksheet(worksheet: Worksheet) {
       </Page>
     </Document>
   )
-  return MyDocument
 }

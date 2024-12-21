@@ -9,6 +9,7 @@ export async function askChatGPT(
   question: string,
   nameOfText: string,
   referenceOfText: string,
+  level: number,
 ): Promise<Worksheet> {
   let model: ChatOpenAI
   model = new AzureChatOpenAI()
@@ -26,5 +27,6 @@ export async function askChatGPT(
   const generatedWorksheet = response.tool_calls[0].args as Worksheet
   generatedWorksheet.nameOfText = nameOfText
   generatedWorksheet.referenceInBook = referenceOfText
+  generatedWorksheet.level = level
   return generatedWorksheet
 }
