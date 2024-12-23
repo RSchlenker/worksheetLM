@@ -65,6 +65,7 @@ export default function WorksheetForm() {
           text="Arbeitsblatt erstellen"
           isLoading={loading}
           onClick={onConfirm}
+          enabled={() => text.length > 0}
         />
       </div>
     </div>

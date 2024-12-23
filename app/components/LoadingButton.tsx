@@ -4,15 +4,18 @@ export default function LoadingButton({
   isLoading,
   text,
   onClick,
+  enabled,
 }: {
   isLoading: boolean
   text: string
   onClick: Function
+  enabled: () => boolean
 }) {
   return (
     <button
       type="button"
-      className="inline-flex min-w-40 h-14 max-h-16 justify-center rounded-md bg-cyan-700 hover:bg-cyan-400 px-3 py-2 text-sm font-semibold text-white shadow-sm sm:w-auto ml-auto focus:outline-none focus:shadow-outline focus:bg-emerald-600 my-auto"
+      className={`inline-flex min-w-40 h-14 max-h-16 justify-center rounded-md px-3 py-2 text-sm font-semibold text-white sm:w-auto ml-auto my-auto ${enabled() ? 'bg-cyan-700 hover:bg-cyan-400' : 'hover:bg-gray-500 bg-gray-400'}`}
+      disabled={!enabled()}
       onClick={() => onClick()}
     >
       {isLoading ? (
