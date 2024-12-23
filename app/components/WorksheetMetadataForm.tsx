@@ -35,21 +35,25 @@ export default function WorksheetMetadataForm({
       </h3>
       <LevelSelector onChange={updateLevel} initialLevel={level} />
       <Field className="grid grid-cols-6 w-full mt-4">
-        <Label className="col-span-1 font-semibold">Referenz im Buch</Label>
+        <Label className="col-span-6 md:col-span-1 font-semibold">
+          Referenz im Buch
+        </Label>
         <Textarea
           value={currentTextReference}
           placeholder={'z.B. LB S. 18/19'}
           onChange={(e) => updateTextReference(e.target.value)}
-          className="col-span-5 px-2 pb-1 border-b-2 h-8 resize-none mb-4"
+          className="col-span-6 md:col-span-5 px-2 pb-1 border-b-2 h-8 resize-none mb-4"
         />
       </Field>
       <Field className="grid grid-cols-6 w-full">
-        <Label className="col-span font-semibold">Titel des Textes</Label>
+        <Label className="col-span-6 md:col-span font-semibold">
+          Titel des Textes
+        </Label>
         <Textarea
           value={currentName}
           placeholder={'z.B. Zehn Blätter fliegen davon'}
           onChange={(e) => updateName(e.target.value)}
-          className="col-span-5 px-2 pb-1 border-b-2 h-8 resize-none"
+          className="col-span-6 md:col-span-5 px-2 pb-1 border-b-2 h-8 resize-none"
         />
       </Field>
     </div>

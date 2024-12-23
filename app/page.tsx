@@ -13,7 +13,7 @@ export default function Page() {
           <div className="col-span-5 lg:col-span-2">
             <WorksheetForm />
           </div>
-          <div className="col-span-5 lg:col-span-3">
+          <div className="col-span-5 lg:col-span-3 flex flex-col h-full overflow-scroll">
             <WorksheetWrapper />
           </div>
           <div className="col-span-3">{/*<WorksheetValidator />*/}</div>

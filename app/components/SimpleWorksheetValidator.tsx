@@ -21,8 +21,6 @@ export default function SimpleWorksheetValidator({
   const [trueFalseStatements, setTrueFalseStatements] = useState(
     worksheet.trueFalseStatements,
   )
-  const [level, setLevel] = useState(worksheet.level)
-  const [textReference, setTextReference] = useState(worksheet.referenceInBook)
   const [updatedWorksheet, setUpdatedWorksheet] = useState(worksheet)
 
   const updateFirstQuestion = (question: string, answer: string) => {
@@ -80,8 +78,8 @@ export default function SimpleWorksheetValidator({
   }
 
   return (
-    <div>
-      <div className="max-h-[60vh] overflow-scroll rounded-2xl border-2 border-gray-400">
+    <div className="h-full">
+      <div className="h-full overflow-scroll rounded-2xl border-2 border-gray-400">
         <SimpleQuestionForm
           title="Einstiegsfrage"
           question={worksheet.firstQuestion.question}

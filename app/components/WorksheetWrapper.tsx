@@ -39,10 +39,12 @@ export default function WorksheetWrapper() {
   const EditOrViewWorksheet = () => {
     if (isEditing) {
       return (
-        <SimpleWorksheetValidator
-          onSubmit={onWorksheetChange}
-          worksheet={currentWorksheet}
-        />
+        <div className="h-full">
+          <SimpleWorksheetValidator
+            onSubmit={onWorksheetChange}
+            worksheet={currentWorksheet}
+          />
+        </div>
       )
     } else {
       return <WorksheetViewer worksheet={currentWorksheet} />
@@ -50,7 +52,7 @@ export default function WorksheetWrapper() {
   }
 
   return (
-    <div className="bg-gray-100 p-8 shadow-xl h-[80vh]">
+    <div className="bg-gray-100 p-8 shadow-xl h-[85vh] flex flex-col">
       <div className="flex py-5 align-middle h-20">
         <h2 className="text-4xl font-bold my-auto mr-auto">Arbeitsblatt</h2>
         {!isEditing && worksheets && worksheets.length ? (
@@ -64,11 +66,13 @@ export default function WorksheetWrapper() {
           ''
         )}
       </div>
-      {worksheets && worksheets.length ? (
-        <EditOrViewWorksheet />
-      ) : (
-        <NoWorksheetYet />
-      )}
+      <div className="h-[80%]">
+        {worksheets && worksheets.length ? (
+          <EditOrViewWorksheet />
+        ) : (
+          <NoWorksheetYet />
+        )}
+      </div>
     </div>
   )
 }

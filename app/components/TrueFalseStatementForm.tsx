@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Field, Label, Switch, Textarea } from '@headlessui/react'
+import { Field, Input, Label, Switch } from '@headlessui/react'
 import { Worksheet } from '../actions/tools/WorksheetTool'
 
 export default function TrueFalseStatementForm({
@@ -38,13 +38,15 @@ export default function TrueFalseStatementForm({
   return (
     <div className="flex flex-col w-full p-2">
       <Field className="grid grid-cols-6 w-full">
-        <Label className="col-span-1 font-semibold">Aussage</Label>
-        <Textarea
+        <Label className="col-span-6 md:col-span-1 font-semibold">
+          Aussage
+        </Label>
+        <Input
           value={currentStatement}
           onChange={(e) => updateStatement(e.target.value)}
-          className="col-span-5 px-2 pb-1 border-b-2 h-8 resize-none mb-1"
+          className="col-span-6 md:col-span-5 px-2 pb-1 border-b-2 h-8 resize-none mb-1"
         />
-        <Label className="col-span-1 font-semibold">
+        <Label className="col-span-6 md:col-span-1 font-semibold">
           {isTrue ? 'Wahr' : 'Falsch'}
         </Label>
         <Switch

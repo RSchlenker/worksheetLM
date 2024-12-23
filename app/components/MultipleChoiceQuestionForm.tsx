@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Field, Label, Textarea } from '@headlessui/react'
+import { Field, Input, Label } from '@headlessui/react'
 import { Worksheet } from '../actions/tools/WorksheetTool'
 
 export default function MultipleChoiceQuestionForm({
@@ -64,29 +64,35 @@ export default function MultipleChoiceQuestionForm({
     <div className="flex flex-col w-full px-10 pt-3 pb-5 bg-gray-100 rounded-2xl my-5">
       <h3 className="font-bold text-xl pb-3 -ml-2">{title}</h3>
       <Field className="grid grid-cols-6 w-full">
-        <Label className="col-span-1 font-semibold">Frage</Label>
-        <Textarea
+        <Label className="col-span-6 md:col-span-1 font-semibold">Frage</Label>
+        <Input
           value={currentQuestion}
           onChange={(e) => updateQuestion(e.target.value)}
-          className="col-span-5 px-2 pb-1 border-b-2 h-8 resize-none mb-4"
+          className="col-span-6 md:col-span-5 px-2 pb-1 border-b-2 h-8 resize-none mb-4"
         />
-        <Label className="col-span-1 font-semibold">Antwort 1</Label>
-        <Textarea
+        <Label className="col-span-6 md:col-span-1 font-semibold">
+          Antwort 1
+        </Label>
+        <Input
           value={currentAnswer1}
           onChange={(e) => updateAnswer1(e.target.value)}
-          className="col-span-5 px-2 pb-1 border-b-2 h-8 resize-none mb-1"
+          className="col-span-6 md:col-span-5 px-2 pb-1 border-b-2 h-8 resize-none mb-1"
         />
-        <Label className="col-span-1 font-semibold">Antwort 2</Label>
-        <Textarea
+        <Label className="col-span-6 md:col-span-1 font-semibold">
+          Antwort 2
+        </Label>
+        <Input
           value={currentAnswer2}
           onChange={(e) => updateAnswer2(e.target.value)}
-          className="col-span-5 px-2 pb-1 border-b-2 h-8 resize-none mb-1"
+          className="col-span-6 md:col-span-5 px-2 pb-1 border-b-2 h-8 resize-none mb-1"
         />
-        <Label className="col-span-1 font-semibold">Antwort 3</Label>
-        <Textarea
+        <Label className="col-span-6 md:col-span-1 font-semibold">
+          Antwort 3
+        </Label>
+        <Input
           value={currentAnswer3}
           onChange={(e) => updateAnswer3(e.target.value)}
-          className="col-span-5 px-2 pb-1 border-b-2 h-8 resize-none"
+          className="col-span-6 md:col-span-5 px-2 pb-1 border-b-2 h-8 resize-none"
         />
       </Field>
     </div>
